@@ -1,1 +1,1 @@
-# pairs-trading-strategy
+# yfinance_project
