@@ -1,100 +1,50 @@
-# Project Overview
+# Financial Event-Study Engine (Python)
 
-This project investigates how financial market sectors respond to major global shock events by analysing historical price data and generating retrospective, data-driven investment strategies. Using Python, real market data is collected, processed, visualised, and analysed to compute sector-specific performance metrics around each event. These metrics are then combined to infer investor-style recommendations based entirely on observed price behaviour.
+![CI](https://github.com/williaminsley/yfinance_project/actions/workflows/ci.yml/badge.svg)
 
-The project is intended for both technical users (to explore Python-based financial analysis) and historical or analytical users who wish to examine how different market sectors behaved during periods of systemic stress.
+An end-to-end Python project analysing how financial market sectors respond to major global shock events using historical price data.  
+The system applies event-study methodology, computes sector-level metrics, and validates results with automated testing and continuous integration.
 
-## Features
+This project is designed to demonstrate **clean Python architecture, test-driven metrics validation, and CI-enabled reliability**, alongside applied financial data analysis.
 
-Downloads real historical market data using yfinance.
+---
 
-Supports multiple events and adjustable time windows.
+## Project Overview
 
-Normalises prices at the event date for fair comparison.
+This project investigates how different financial market sectors behave before and after major global shock events (e.g. COVID-19, the 2008 Financial Crisis, the invasion of Ukraine).
 
-Computes:
+Using Python and real market data:
+- Historical price data is collected programmatically
+- Prices are normalised at event dates for fair comparison
+- Sector-level performance metrics are computed
+- Results are validated using automated unit tests
 
-Pre- and post-event returns
+The focus is on **correctness, reproducibility, and software-engineering best practices**, not just exploratory analysis.
 
-Market beta
+---
 
-Volatility
+## Key Features
 
-Maximum drawdown
+- Downloads real historical market data using `yfinance`
+- Supports multiple user-defined events and time windows
+- Normalises prices at event dates for consistent comparison
+- Computes:
+  - Pre- and post-event returns
+  - Market beta relative to S&P 500
+  - Recovery timing after drawdowns
+- Fully unit-tested metric calculations
+- Continuous Integration via GitHub Actions
 
-Recovery time
-
-Generates investor-style strategy recommendations:
-
-Defensive (low volatility)
-
-Growth-oriented (high returns)
-
-Fast recovery
-
-Provides interactive visualisation with zoom-dependent analysis.
-
-Modular, object-oriented design for clarity and extensibility.
+---
 
 ## Project Structure
 
-Analyser class
-Handles data download, event window selection, metric computation, and visualisation.
-
-Strategy class
-Computes higher-level investment metrics and generates investor-style recommendations based on realised market behaviour.
-
-Interactive components
-Allow users to dynamically adjust the analysis window and immediately see updated plots and strategy outputs.
-
-## How to Run
-
-Create the Conda environment using the provided environment file.
-
-Open the Jupyter Notebook (project_template.ipynb).
-
-Run all cells from top to bottom.
-
-Use the dropdown menu below each event plot to adjust the time window and observe how metrics and strategy recommendations change.
-
-Note: Full widget functionality requires Jupyter widget support to be enabled in the execution environment.
-
-## Dependencies
-
-Python 3.10+
-
-pandas
-
-numpy
-
-matplotlib
-
-yfinance
-
-ipywidgets
-
-All dependencies are specified in the supplied Conda environment file.
-
-## Limitations
-
-Analyst recommendation data is not available for sector ETFs; therefore, all strategy insights are derived solely from realised price behaviour.
-
-Interactive widgets may not render correctly in all IDEs (e.g. some VS Code configurations).
-
-The project focuses on retrospective analysis and does not attempt to predict future market behaviour.
-
-Future Work
-
-Potential extensions include:
-
-Risk-adjusted return metrics (Sharpe ratio, Sortino ratio).
-
-Portfolio optimisation across sectors.
-
-Monte Carlo simulations.
-
-Support for additional asset classes.
-
-Export of results to static reports or dashboards.
-
-Event clustering and regime detection.
+```text
+.
+├── src/                # Core analysis and strategy logic
+├── tests/              # Unit tests (pytest)
+├── .github/workflows/  # CI pipeline (GitHub Actions)
+├── main.py             # Example execution script
+├── requirements.txt    # Project dependencies
+├── pytest.ini          # Pytest configuration
+└── README.md
